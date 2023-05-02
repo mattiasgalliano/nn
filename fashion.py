@@ -6,7 +6,7 @@ import pandas as pd
 
 from nn.train import train
 from nn.nn import NeuralNet
-from nn.layers import Linear, Tanh#, Sigmoid, Relu
+from nn.layers import Linear, Tanh, Relu, Sigmoid
 
 
 fname = 'fashion.csv'
@@ -26,7 +26,7 @@ train_labels, test_labels = labels, labels
 
 net = NeuralNet([
     Linear(input_size=784, output_size=256),
-    Tanh(),
+    Sigmoid(),
     Linear(input_size=256, output_size=1)
 ])
 

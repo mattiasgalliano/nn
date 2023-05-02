@@ -22,4 +22,3 @@ class NeuralNet:
             for name, param in layer.params.items():
                 grad = layer.grads[name]
                 yield param, grad
-

@@ -97,7 +97,29 @@ def tanh_prime(x: Tensor) -> Tensor:
     y = tanh(x)
     return 1 - y ** 2
 
+def sigmoid(x: Tensor) -> Tensor:
+    return 1 / (1 + np.exp(-x))
+
+def sigmoid_prime(x: Tensor) -> Tensor:
+    y = sigmoid(x)
+    return y * (1 - y)
+
+def relu(x: Tensor) -> Tensor:
+    return np.maximum(0, x)
+
+def relu_prime(x: Tensor) -> Tensor:
+    y = np.array(x, copy=True)
+    y = (x > 0) * 1.
+    return y
 
 class Tanh(Activation):
     def __init__(self):
         super().__init__(tanh, tanh_prime)
+
+class Relu(Activation):
+    def __init__(self):
+        super().__init__(relu, relu_prime)
+
+class Sigmoid(Activation):
+    def __init__(self):
+        super().__init__(sigmoid, sigmoid_prime)
