@@ -9,7 +9,7 @@ from nn.nn import NeuralNet
 from nn.layers import Linear, Tanh, Relu, Sigmoid
 
 
-fname = 'fashion.csv'
+fname = 'fashion.csv' # TODO add fashion mnist in csv format
 
 df = pd.read_csv(fname, header=None)
 
