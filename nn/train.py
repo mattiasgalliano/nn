@@ -9,10 +9,10 @@ from nn.data import DataIterator, BatchIterator
 def train(net: NeuralNet,
         inputs: Tensor,
         targets: Tensor,
-        num_epochs: int = 5000,
+        num_epochs: int = 100,
         iterator: DataIterator = BatchIterator(),
         loss: Loss = MSE(),
-        optimizer: Optimizer = SGD(lr = 1e-1)) -> None:
+        optimizer: Optimizer = SGD(lr = 1e-4)) -> None:
     for epoch in range(num_epochs):
         epoch_loss = 0.0
         for batch in iterator(inputs, targets):
