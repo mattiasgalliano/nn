@@ -1,2 +1,2 @@
 # nn
-Pedagogical exercise to implement neural networks from scratch.
+Implementing neural networks from scratch as a pedagogicical exercise.
