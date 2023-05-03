@@ -24,3 +24,14 @@ class MSE(Loss):
 
     def grad(self, predicted: Tensor, actual: Tensor) -> Tensor:
         return 2 * (predicted - actual)
+
+class BCE(Loss):
+    def loss(self, predicted: Tensor, actual: Tensor) -> float:
+        # print(predicted, actual)
+        # print(np.log(predicted) * -actual)
+        # print(((1 - actual)*(np.log(1 - predicted))))
+        # print(-actual * np.log(predicted) - ((1 - actual)*(np.log(1 - predicted))))
+        return np.sum(-actual * np.log(predicted) - ((1 - actual)*(np.log(1 - predicted))))
+    
+    def grad(self, predicted: Tensor, actual: Tensor) -> float:
+        return (-(actual / predicted) + ((1 - actual) / (1 - predicted)))
